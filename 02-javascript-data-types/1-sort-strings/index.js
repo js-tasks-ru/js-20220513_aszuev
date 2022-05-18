@@ -6,7 +6,7 @@
  */
 export function sortStrings(arr, param = 'asc') {
 
-    let arrNew = [...arr];
+    const arrNew = [...arr];
 
     function caseInsensitiveComparator(valueA, valueB) {
         const valueALowerCase = valueA.toLowerCase();
