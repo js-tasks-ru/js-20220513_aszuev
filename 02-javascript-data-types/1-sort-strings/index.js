@@ -6,4 +6,37 @@
  */
 export function sortStrings(arr, param = 'asc') {
 
+    const arrNew = [...arr];
+
+    function caseInsensitiveComparator(valueA, valueB) {
+        const valueALowerCase = valueA.toLowerCase();
+        const valueBLowerCase = valueB.toLowerCase();
+         
+        if (valueALowerCase < valueBLowerCase) {
+            return -1;
+        } else if (valueALowerCase > valueBLowerCase) {
+            return 1;
+        } else {
+            if (valueA < valueB) {
+                return -1;
+            } else if (valueA > valueB) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+    };  
+      
+    function caseInsensitiveComparatorSort(valueALowerCase, valueBLowerCase) {
+        return valueALowerCase.toLowerCase().localeCompare(valueBLowerCase.toLowerCase());
+    } 
+      
+    if (param == 'asc') {
+        const arrAsc = arrNew.sort(caseInsensitiveComparator);
+        const arrAscNew =  arrAsc.sort(caseInsensitiveComparatorSort);
+        return arrAscNew;
+    } else if (param == 'desc') {
+        const arrDesk = arrNew.sort(caseInsensitiveComparatorSort).reverse();
+        return arrDesk;
+    }
 }
