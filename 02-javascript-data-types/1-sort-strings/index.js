@@ -36,7 +36,8 @@ export function sortStrings(arr, param = 'asc') {
         const arrAscNew =  arrAsc.sort(caseInsensitiveComparatorSort);
         return arrAscNew;
     } else if (param == 'desc') {
-        const arrDesk = arrNew.sort(caseInsensitiveComparatorSort).reverse();
-        return arrDesk;
+        const arrDesk = arrNew.sort(caseInsensitiveComparator);
+        const arrDeskNew =  arrDesk.sort(caseInsensitiveComparatorSort).reverse();
+        return arrDeskNew;
     }
 }
