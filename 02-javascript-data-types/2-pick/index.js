@@ -5,14 +5,11 @@
  * @returns {object} - returns the new object
  */
 export const pick = (obj, ...fields) => {
-    let fruitsArr = [];
-  
-    for (const [key, value] of Object.entries(fields)) {
-        const fruitKey = fields[key];
-        const fruitValue = parseInt(obj[value]);
-        fruitsArr.push([fruitKey,fruitValue]);
+    const newObj = {};
+
+    for (const field of fields) {
+        newObj[field] = obj[field];
     }
 
-    fruitsArr = Object.fromEntries(fruitsArr)
-    return fruitsArr
+  return newObj;
 };
