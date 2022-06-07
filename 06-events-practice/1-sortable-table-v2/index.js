@@ -116,7 +116,7 @@ export default class SortableTable {
 
     wrapper.innerHTML = this.getTable(sortedData);
 
-    // const element = wrapper.firstElementChild;
+    const element = wrapper.firstElementChild;
 
     this.element = wrapper.firstElementChild;
     this.subElements = this.getSubElements(this.element);
@@ -162,7 +162,9 @@ export default class SortableTable {
   }
 
   remove() {
-    this.element.remove();
+    if (this.element) {
+      this.element.remove();
+    }
   }
 
   destroy() {
